@@ -55,7 +55,7 @@
       "commentary": "Strength varies across domains with math and science reasoning continually improving."
     },
     {
-      "title": "Image Processing and Generation",
+      "title": "Image Generation",
       "description": "Analyzes, modifies, and creates images from textual prompts.",
       "supported": ["DALL-E 3", "Midjourney", "Stable Diffusion", "Gemini"],
       "benchmarks": [

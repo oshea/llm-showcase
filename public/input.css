@@ -38,6 +38,11 @@
     filter: brightness(0.6);
     opacity: 0.4;
   }
+  
+  .human-likeness-rating {
+    @apply flex flex-row gap-1 items-center justify-start;
+    height: 32px;
+  }
 }
 
 @layer utilities {
