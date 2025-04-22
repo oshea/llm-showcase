@@ -1,1 +1,1 @@
-# llm-showcase
+# llm-capability-showcase
