@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM Capabilities Showcase</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-slate-100 antialiased font-display">
+
+  <!-- Page wrapper -->
+  <div class="max-w-6xl mx-auto p-6" x-data="capabilities()"
+       x-init="load()">
+
+    <!-- Card grid -->
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Card -->
+      <template x-for="cap in caps" :key="cap.title">
+        <article
+          class="bg-card rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col">
+
+          <!-- Title + icon slot -->
+          <header class="flex items-start gap-3 mb-4">
+            <!-- icon -->
+            <div class="w-10 h-10 flex-none rounded-lg bg-violet-100 grid place-items-center">
+              <span class="text-2xl" x-text="cap.icon"></span>
+            </div>
+            <h2 class="text-xl font-semibold" x-text="cap.title"></h2>
+          </header>
+
+          <!-- Description -->
+          <p class="text-sm text-slate-700 mb-4 description" x-text="cap.description"></p>
+
+          <!-- Use Case -->
+          <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Example Use Case</p>
+          <p class="text-sm text-slate-700 mb-4 usecase" x-text="cap.useCase"></p>
+
+          <!-- Supported models -->
+          <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Supported by</p>
+          <ul class="flex flex-wrap gap-1 mb-4">
+            <template x-for="model in cap.supported">
+              <li class="px-2 py-1 bg-slate-200 rounded text-xs" x-text="model"></li>
+            </template>
+          </ul>
+
+          <!-- Benchmarks -->
+          <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Benchmarks</p>
+          <div class="mb-4 benchmark-container">
+            <template x-for="(b, index) in cap.benchmarks" :key="b.name">
+              <span>
+                <a :href="b.url" target="_blank" class="text-blue-600 hover:underline text-sm"
+                   x-text="b.name"></a><template x-if="index < cap.benchmarks.length - 1"><span>, </span></template>
+              </span>
+            </template>
+          </div>
+
+          <!-- Commentary -->
+          <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Commentary</p>
+          <p class="text-sm text-slate-700 mb-4 commentary" x-text="cap.commentary"></p>
+
+          <!-- Human‑likeness -->
+          <div class="mt-auto pt-3 border-t border-slate-200">
+            <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">
+              Human‑likeness
+            </p>
+            <div class="human-likeness-rating">
+              <template x-for="i in 5">
+                <img :src="'assets/turing.svg'" 
+                     :class="i <= cap.rating ? 'filled-head' : 'unfilled-head'"
+                     class="w-8 h-8" alt="Alan Turing head rating" />
+              </template>
+            </div>
+          </div>
+        </article>
+      </template>
+    </div>
+  </div>
+
+  <!-- Alpine component -->
+  <script>
+    function capabilities() {
+      return {
+        caps: [],
+        async load() {
+          const res = await fetch('capabilities.json');
+          this.caps = await res.json();
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -7,74 +7,79 @@
   <link rel="stylesheet" href="style.css" />
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-slate-100 antialiased font-display">
+<body class="bg-gradient-to-br from-gray-800 via-gray-900 to-black antialiased font-display text-gray-300">
 
   <!-- Page wrapper -->
-  <div class="max-w-6xl mx-auto p-6" x-data="capabilities()"
-       x-init="load()">
+  <div class="max-w-5xl mx-auto p-6 space-y-8" x-data="capabilities()" x-init="load()">
 
-    <!-- Card grid -->
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Card -->
-      <template x-for="cap in caps" :key="cap.title">
-        <article
-          class="bg-card rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col">
+    <!-- Horizontal sections -->
+    <template x-for="cap in caps" :key="cap.title">
+      <section class="bg-gray-800/60 backdrop-blur-md rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col border border-gray-700">
 
-          <!-- Title + icon slot -->
-          <header class="flex items-start gap-3 mb-4">
-            <!-- icon -->
-            <div class="w-10 h-10 flex-none rounded-lg bg-violet-100 grid place-items-center">
-              <span class="text-2xl" x-text="cap.icon"></span>
-            </div>
-            <h2 class="text-xl font-semibold" x-text="cap.title"></h2>
-          </header>
-
-          <!-- Description -->
-          <p class="text-sm text-slate-700 mb-4 description" x-text="cap.description"></p>
-
-          <!-- Use Case -->
-          <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Example Use Case</p>
-          <p class="text-sm text-slate-700 mb-4 usecase" x-text="cap.useCase"></p>
-
-          <!-- Supported models -->
-          <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Supported by</p>
-          <ul class="flex flex-wrap gap-1 mb-4">
-            <template x-for="model in cap.supported">
-              <li class="px-2 py-1 bg-slate-200 rounded text-xs" x-text="model"></li>
-            </template>
-          </ul>
-
-          <!-- Benchmarks -->
-          <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Benchmarks</p>
-          <div class="mb-4 benchmark-container">
-            <template x-for="(b, index) in cap.benchmarks" :key="b.name">
-              <span>
-                <a :href="b.url" target="_blank" class="text-blue-600 hover:underline text-sm"
-                   x-text="b.name"></a><template x-if="index < cap.benchmarks.length - 1"><span>, </span></template>
-              </span>
-            </template>
+        <!-- Top Section: Icon, Title, Rating -->
+        <div class="p-6 flex items-center gap-4">
+          <div class="w-12 h-12 flex-none rounded-lg bg-gray-700 grid place-items-center">
+            <span class="text-3xl" x-text="cap.icon"></span>
           </div>
-
-          <!-- Commentary -->
-          <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Commentary</p>
-          <p class="text-sm text-slate-700 mb-4 commentary" x-text="cap.commentary"></p>
-
-          <!-- Human‑likeness -->
-          <div class="mt-auto pt-3 border-t border-slate-200">
-            <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">
-              Human‑likeness
-            </p>
+          <div class="flex-grow">
+            <h2 class="text-xl font-semibold text-gray-100" x-text="cap.title"></h2>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Human‑likeness</p>
             <div class="human-likeness-rating">
               <template x-for="i in 5">
-                <img :src="'assets/turing.svg'" 
-                     :class="i <= cap.rating ? 'filled-head' : 'unfilled-head'"
+                <img :src="'assets/turing2.svg'"
+                     :class="i <= cap.rating ? 'filled-head-dark' : 'unfilled-head-dark'"
                      class="w-8 h-8" alt="Alan Turing head rating" />
               </template>
             </div>
           </div>
-        </article>
-      </template>
-    </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-gray-700"></div>
+
+        <!-- Bottom Section: Description, Details -->
+        <div class="flex flex-col md:flex-row">
+          <!-- Left Side (Now contains Description only) -->
+          <div class="p-6 md:w-2/5 md:border-r md:border-gray-700">
+             <p class="text-sm text-gray-400" x-text="cap.description"></p>
+          </div>
+
+          <!-- Right Side (Details) -->
+          <div class="p-6 flex-grow md:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Column 1: Use Case, Commentary -->
+            <div>
+              <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Example Use Case</p>
+              <p class="text-sm text-gray-400 mb-4" x-text="cap.useCase"></p>
+
+              <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Commentary</p>
+              <p class="text-sm text-gray-400" x-text="cap.commentary"></p>
+            </div>
+
+            <!-- Column 2: Supported, Benchmarks -->
+            <div>
+              <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Supported by</p>
+              <ul class="flex flex-wrap gap-1 mb-4">
+                <template x-for="model in cap.supported">
+                  <li class="px-2 py-0.5 bg-gray-700 rounded text-xs text-gray-300" x-text="model"></li>
+                </template>
+              </ul>
+
+              <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Benchmarks</p>
+              <ul class="list-disc list-inside space-y-0.5 mb-4">
+                <template x-for="b in cap.benchmarks">
+                  <li>
+                    <a :href="b.url" target="_blank" class="text-blue-400 hover:underline text-sm"
+                       x-text="b.name"></a>
+                  </li>
+                </template>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </template>
   </div>
 
   <!-- Alpine component -->
