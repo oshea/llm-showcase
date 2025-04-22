@@ -1,0 +1,71 @@
+[
+    {
+      "title": "Instruction Following",
+      "description": "Executes tasks from natural‑language instructions.",
+      "supported": ["GPT‑4", "Gemini", "Claude"],
+      "benchmarks": [
+        { "name": "InFoBench", "url": "https://arxiv.org/abs/2401.03601" },
+        { "name": "LLMBar", "url": "https://openreview.net/forum?id=tr0KidwPLc" },
+        { "name": "Kagi", "url": "https://help.kagi.com/kagi/ai/llm-benchmark.html" }
+      ],
+      "rating": 4,
+      "icon": "📝",
+      "useCase": "Creating content based on specific requirements or guidelines.",
+      "commentary": "Foundation for most LLM interactions. Accuracy varies by complexity and domain knowledge."
+    },
+    {
+      "title": "Browser & Desktop Use",
+      "description": "Interacts with browsers / OS environments.",
+      "supported": ["GPT‑4"],
+      "benchmarks": [
+        { "name": "WebArena", "url": "https://arxiv.org/abs/2307.13854" },
+        { "name": "OSWorld", "url": "https://arxiv.org/abs/2404.07972" },
+        { "name": "WebVoyager", "url": "https://arxiv.org/abs/2401.13919" },
+        { "name": "ScreenSpot", "url": "https://huggingface.co/datasets/rootsautomation/ScreenSpot" }
+      ],
+      "rating": 2,
+      "icon": "🖥️",
+      "useCase": "Automating repetitive web tasks or navigating complex web interfaces.",
+      "commentary": "Still maturing but showing promise for web automation and desktop interaction."
+    },
+    {
+      "title": "Tool Use",
+      "description": "Use various tools like code interpreters and external APIs.",
+      "supported": ["GPT‑4", "Claude", "Gemini"],
+      "benchmarks": [
+        { "name": "ToolBench", "url": "https://github.com/OpenBMB/ToolBench" },
+        { "name": "API-Bank", "url": "https://github.com/microsoft/API-Bank" }
+      ],
+      "rating": 5,
+      "icon": "🔧",
+      "useCase": "Executing code, retrieving data, or calling external services.",
+      "commentary": "Greatly expands LLM capabilities by connecting to external systems and data sources."
+    },
+    {
+      "title": "Reasoning",
+      "description": "Apply logical and complex reasoning skills to solve problems.",
+      "supported": ["GPT‑4", "Claude", "Gemini"],
+      "benchmarks": [
+        { "name": "GSM8K", "url": "https://github.com/openai/grade-school-math" },
+        { "name": "Big-Bench", "url": "https://github.com/google/BIG-bench" }
+      ],
+      "rating": 4,
+      "icon": "🧠",
+      "useCase": "Solving multi-step problems requiring logical inference and analysis.",
+      "commentary": "Strength varies across domains with math and science reasoning continually improving."
+    },
+    {
+      "title": "Image Processing and Generation",
+      "description": "Analyzes, modifies, and creates images from textual prompts.",
+      "supported": ["DALL-E 3", "Midjourney", "Stable Diffusion", "Gemini"],
+      "benchmarks": [
+        { "name": "PartiPrompts", "url": "https://parti.research.google/" },
+        { "name": "MS COCO", "url": "https://cocodataset.org/" }
+      ],
+      "rating": 4,
+      "icon": "🖼️",
+      "useCase": "Generating artwork, concept art, photo editing, object recognition.",
+      "commentary": "Rapidly evolving field with increasingly realistic and complex outputs."
+    }
+  ]
+  

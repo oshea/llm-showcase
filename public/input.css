@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .description {
+    @apply min-h-[3rem];
+  }
+  
+  .benchmark-list {
+    @apply min-h-[4rem];
+  }
+  
+  .usecase {
+    @apply min-h-[3rem];
+  }
+  
+  .commentary {
+    @apply min-h-[3rem];
+  }
+  
+  .filled-head {
+    filter: brightness(1);
+    opacity: 1;
+  }
+  
+  .unfilled-head {
+    filter: brightness(1.5);
+    opacity: 0.3;
+  }
+
+  .filled-head-dark {
+    filter: brightness(1.2);
+    opacity: 0.9;
+  }
+  
+  .unfilled-head-dark {
+    filter: brightness(0.6);
+    opacity: 0.4;
+  }
+}
+
+@layer utilities {
+  .bg-card {
+    background-color: #fcfaf3;
+  }
+}
