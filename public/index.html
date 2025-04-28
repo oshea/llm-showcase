@@ -24,13 +24,29 @@
           <div class="flex-grow">
             <h2 class="text-xl font-semibold text-gray-100" x-text="cap.title"></h2>
           </div>
-          <div>
+              <!-- Turing head ratings -->
+          <div class="mr-2">
             <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Human‑likeness</p>
             <div class="human-likeness-rating">
               <template x-for="i in 5">
-                <img :src="'assets/turing2.svg'"
-                     :class="i <= cap.rating ? 'filled-head-dark' : 'unfilled-head-dark'"
-                     class="w-8 h-8" alt="Alan Turing head rating" />
+                <div x-data="{ showTooltip: false }" 
+                     @mouseenter="showTooltip = true" 
+                     @mouseleave="showTooltip = false" 
+                     class="relative">
+                  <img :src="'assets/turing2.svg'"
+                       :class="i <= cap.rating ? 'filled-head-dark' : 'unfilled-head-dark'"
+                       class="w-8 h-8 cursor-default" alt="Alan Turing head rating" />
+                  <span x-show="showTooltip" 
+                        x-text="getTooltipText(i)" 
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 translate-y-1"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 translate-y-1"
+                        class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1.5 w-max whitespace-nowrap px-2 py-1 bg-gray-900 border border-gray-700 text-gray-300 text-xs rounded shadow-lg z-10">
+                  </span>
+                </div>
               </template>
             </div>
           </div>
@@ -90,6 +106,16 @@
         async load() {
           const res = await fetch('capabilities.json');
           this.caps = await res.json();
+        },
+        getTooltipText(level) {
+          const descriptions = [
+            "Rudimentary",
+            "Basic",
+            "Competent",
+            "Advanced",
+            "Human-like"
+          ];
+          return descriptions[level - 1] || '';
         }
       }
     }

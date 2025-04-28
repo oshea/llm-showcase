@@ -66,6 +66,68 @@
       "icon": "🖼️",
       "useCase": "Generating artwork, concept art, photo editing, object recognition.",
       "commentary": "Rapidly evolving field with increasingly realistic and complex outputs."
+    },
+    {
+      "title": "Placeholder Capability 1",
+      "description": "This is a placeholder description for capability 1.",
+      "supported": ["Model A", "Model B"],
+      "benchmarks": [
+        { "name": "Benchmark P1-X", "url": "#" },
+        { "name": "Benchmark P1-Y", "url": "#" }
+      ],
+      "rating": 3,
+      "icon": "❓",
+      "useCase": "Generic use case example 1.",
+      "commentary": "Placeholder commentary about capability 1."
+    },
+    {
+      "title": "Placeholder Capability 2",
+      "description": "This is a placeholder description for capability 2.",
+      "supported": ["Model C"],
+      "benchmarks": [
+        { "name": "Benchmark P2-Z", "url": "#" }
+      ],
+      "rating": 2,
+      "icon": "❔",
+      "useCase": "Generic use case example 2.",
+      "commentary": "Placeholder commentary about capability 2."
+    },
+    {
+      "title": "Placeholder Capability 3",
+      "description": "This is a placeholder description for capability 3.",
+      "supported": ["Model A", "Model D", "Model E"],
+      "benchmarks": [
+        { "name": "Benchmark P3-A", "url": "#" },
+        { "name": "Benchmark P3-B", "url": "#" },
+        { "name": "Benchmark P3-C", "url": "#" }
+      ],
+      "rating": 4,
+      "icon": "💡",
+      "useCase": "Generic use case example 3.",
+      "commentary": "Placeholder commentary about capability 3."
+    },
+    {
+      "title": "Placeholder Capability 4",
+      "description": "This is a placeholder description for capability 4.",
+      "supported": ["Model F"],
+      "benchmarks": [],
+      "rating": 1,
+      "icon": "🚧",
+      "useCase": "Generic use case example 4.",
+      "commentary": "Placeholder commentary about capability 4."
+    },
+    {
+      "title": "Placeholder Capability 5",
+      "description": "This is a placeholder description for capability 5.",
+      "supported": ["Model G", "Model H"],
+      "benchmarks": [
+        { "name": "Benchmark P5-X", "url": "#" },
+        { "name": "Benchmark P5-Y", "url": "#" }
+      ],
+      "rating": 5,
+      "icon": "🌟",
+      "useCase": "Generic use case example 5.",
+      "commentary": "Placeholder commentary about capability 5."
     }
   ]
   
