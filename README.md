@@ -21,7 +21,7 @@ A simple static web page to display and compare different Large Language Model (
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone <https://github.com/GawainTheCoder/llm-showcase>
     cd llm-showcase
     ```
 
