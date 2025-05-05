@@ -1,32 +1,38 @@
 [
     {
       "title": "Instruction Following",
-      "description": "Refers to the ability of the AI to understand and execute tasks based on natural language instructions provided by a user.",
+      "description": "Accurately follow natural-language instructions, respecting all constraints (length, tone, format, content) on the first try. Understands intent, plans steps, and delivers precisely as requested.",
       "supported": ["ChatGPT", "Gemini", "Claude", "Grok", "Deepseek"],
       "benchmarks": [
-        { "name": "InFoBench", "url": "https://arxiv.org/abs/2401.03601" },
-        { "name": "LLMBar", "url": "https://openreview.net/forum?id=tr0KidwPLc" },
-        { "name": "Kagi", "url": "https://help.kagi.com/kagi/ai/llm-benchmark.html" }
+        { "name": "IFEval", "url": "https://arxiv.org/abs/2311.07911" },
+        { "name": "FollowBench", "url": "https://arxiv.org/abs/2310.20410" },
+        { "name": "MultiChallenge", "url": "https://arxiv.org/abs/2501.17399" },
+        { "name": "CFBench", "url": "https://arxiv.org/abs/2408.01122" }
+
       ],
       "rating": 4,
       "icon": "📝",
-      "useCase": "Creating content based on specific requirements or guidelines.",
-      "commentary": "Foundation for most LLM interactions. Accuracy varies by complexity and domain knowledge."
+      "useCase": "Auto-generate a weekly financial report: Reads raw data, outputs Markdown with a brief summary (≤150 words), metrics table, formal tone, meeting all constraints perfectly on the first attempt.",
+      "commentary": "Precision is key for business value. LLMs are smart, but true impact comes from doing *exactly* what's asked. This cuts rework, reduces compliance risks, and accelerates workflows."
     },
     {
-      "title": "Browser & Desktop Use",
-      "description": "Interacts with browsers / OS environments.",
-      "supported": ["GPT‑4"],
+      "title": "Computer Use",
+      "description": "Lets AI agents understand instructions and operate GUIs (browsers, desktop apps) autonomously. Navigates websites, interacts with UI elements, extracts info, and completes multi-step tasks.",
+      "supported": [
+         "Operator",
+         "Computer Use",
+         "Specialized Agent Models"
+          ],
       "benchmarks": [
-        { "name": "WebArena", "url": "https://arxiv.org/abs/2307.13854" },
-        { "name": "OSWorld", "url": "https://arxiv.org/abs/2404.07972" },
-        { "name": "WebVoyager", "url": "https://arxiv.org/abs/2401.13919" },
-        { "name": "ScreenSpot", "url": "https://huggingface.co/datasets/rootsautomation/ScreenSpot" }
-      ],
+          { "name": "WebArena", "url": "https://arxiv.org/abs/2307.13854" },
+          { "name": "Mind2Web", "url": "https://arxiv.org/abs/2306.06070" },
+          { "name": "OSWorld", "url": "https://arxiv.org/abs/2404.07972" },
+          { "name": "WebVoyager", "url": "https://arxiv.org/abs/2401.13919" }
+        ],
       "rating": 2,
       "icon": "🖥️",
-      "useCase": "Automating repetitive web tasks or navigating complex web interfaces.",
-      "commentary": "Still maturing but showing promise for web automation and desktop interaction."
+      "useCase": "Book a flight: Given 'Find cheapest direct LHR-JFK flight next Tuesday PM', agent opens site, searches, filters, selects best option, proceeds to booking (pausing for user confirmation).",
+      "commentary": "Unlocks automation by letting AI *do* tasks. Potential to revolutionize workflows, accessibility, and assistance, though reliability across diverse interfaces is still improving."
     },
     {
       "title": "Tool Use",
