@@ -1,8 +1,8 @@
 [
     {
       "title": "Instruction Following",
-      "description": "Executes tasks from natural‑language instructions.",
-      "supported": ["GPT‑4", "Gemini", "Claude"],
+      "description": "Refers to the ability of the AI to understand and execute tasks based on natural language instructions provided by a user.",
+      "supported": ["ChatGPT", "Gemini", "Claude", "Grok", "Deepseek"],
       "benchmarks": [
         { "name": "InFoBench", "url": "https://arxiv.org/abs/2401.03601" },
         { "name": "LLMBar", "url": "https://openreview.net/forum?id=tr0KidwPLc" },
