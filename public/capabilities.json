@@ -11,7 +11,7 @@
 
       ],
       "rating": 4,
-      "icon": "llm-showcase/public/assets/IF.svg",
+      "icon": "📝",
       "useCase": "Auto-generate a weekly financial report: Reads raw data, outputs Markdown with a brief summary (≤150 words), metrics table, formal tone, meeting all constraints perfectly on the first attempt.",
       "commentary": "Precision is key for business value. LLMs are smart, but true impact comes from doing *exactly* what's asked. This cuts rework, reduces compliance risks, and accelerates workflows."
     },
