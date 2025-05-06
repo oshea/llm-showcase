@@ -6,11 +6,34 @@
   <title>LLM Capabilities Showcase</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    body { overflow-anchor: none; }
+  </style>
 </head>
 <body class="bg-gradient-to-br from-gray-800 via-gray-900 to-black antialiased font-display text-gray-300" x-data="capabilities()" x-init="load()">
 
+  <!-- Loading Indicator Overlay -->
+  <div x-show="!dataLoaded"
+       x-cloak
+       x-transition:leave="transition ease-in duration-300"
+       x-transition:leave-start="opacity-100"
+       x-transition:leave-end="opacity-0"
+       class="fixed inset-0 flex items-center justify-center bg-gray-900 z-50">
+      <!-- Animated SVG Spinner -->
+      <svg class="animate-spin h-12 w-12 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+  </div>
+
   <!-- Page wrapper -->
-  <div class="max-w-5xl mx-auto p-4 md:p-6 space-y-6 md:space-y-8">
+  <div x-show="dataLoaded"
+       x-cloak
+       x-transition:enter="transition ease-out duration-500 delay-100"
+       x-transition:enter-start="opacity-0 transform scale-95"
+       x-transition:enter-end="opacity-100 transform scale-100"
+       class="max-w-5xl mx-auto p-4 md:p-6 space-y-6 md:space-y-8">
 
     <!-- Horizontal sections -->
     <template x-for="cap in caps" :key="cap.title">
@@ -159,9 +182,11 @@
       return {
         caps: [],
         showRatingLegend: false,
+        dataLoaded: false, 
         async load() {
           const res = await fetch('capabilities.json');
           this.caps = await res.json();
+          this.dataLoaded = true; 
         },
         getTooltipText(level) {
           const descriptions = [
