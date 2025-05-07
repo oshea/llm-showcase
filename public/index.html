@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LLM Capabilities Showcase</title>
+  <link rel="icon" href="assets/turing2.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css" />
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
@@ -95,31 +96,39 @@
 
         <!-- Bottom Section: Description, Details -->
         <div class="flex flex-col md:flex-row">
-          <!-- Left Side (Now contains Description only) -->
+          <!-- Left Side (Now contains Description and Commentary) -->
           <div class="p-4 md:p-6 md:w-2/5 border-b border-gray-700 md:border-b-0 md:border-r md:border-gray-700">
-             <p class="text-sm text-gray-400" x-text="cap.description"></p>
+            <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Commentary</p>
+
+            <!-- Description content shown first, without its own heading -->
+            <div class="space-y-2">
+              <template x-for="(paragraph, index) in cap.description" :key="index">
+                <p x-text="paragraph" class="text-sm text-gray-400"></p>
+              </template>
+            </div>
+
+            <!-- Commentary Section (appears after description content) -->
+            <template x-if="cap.commentary && cap.commentary.length > 0">
+              <div :class="{ 'mt-4': cap.description && cap.description.length > 0 }">
+                <div class="space-y-2">
+                  <template x-for="(paragraph, index) in cap.commentary" :key="index">
+                    <p x-text="paragraph" class="text-sm text-gray-400"></p>
+                  </template>
+                </div>
+              </div>
+            </template>
           </div>
 
           <!-- Right Side (Details) -->
           <div class="p-4 md:p-6 flex-grow md:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Column 1: Use Case, Commentary -->
+            <!-- Column 1: Use Case -->
             <div>
-              <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Example Use Case</p>
+              <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Use Cases</p>
               <p class="text-sm text-gray-400 mb-4" x-text="cap.useCase"></p>
-
-              <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Commentary</p>
-              <p class="text-sm text-gray-400" x-text="cap.commentary"></p>
             </div>
 
-            <!-- Column 2: Supported, Benchmarks -->
+            <!-- Column 2: Benchmarks, Top Models -->
             <div>
-              <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Supported by</p>
-              <ul class="flex flex-wrap gap-1 mb-4">
-                <template x-for="model in cap.supported">
-                  <li class="px-2 py-0.5 bg-gray-700 rounded text-xs text-gray-300" x-text="model"></li>
-                </template>
-              </ul>
-
               <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Benchmarks</p>
               <ul class="list-disc list-inside space-y-0.5 mb-4">
                 <template x-for="b in cap.benchmarks">
@@ -127,6 +136,13 @@
                     <a :href="b.url" target="_blank" class="text-blue-400 hover:underline text-sm"
                        x-text="b.name"></a>
                   </li>
+                </template>
+              </ul>
+
+              <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Top Models</p>
+              <ul class="flex flex-wrap gap-1 mb-4">
+                <template x-for="model in cap.supported">
+                  <li class="px-2 py-0.5 bg-gray-700 rounded text-xs text-gray-300" x-text="model"></li>
                 </template>
               </ul>
             </div>
@@ -163,7 +179,7 @@
       </button>
 
         <!-- Rating level and Name -->
-      <h3 id="rating-legend-title" class="text-lg font-semibold text-gray-100 mb-4">Human-likeness Rating Levels</h3>
+      <h3 id="rating-legend-title" class="text-lg font-semibold text-gray-100 mb-4">Capability Levels</h3>
       <ul class="space-y-4">
         <template x-for="level in 5" :key="level">
           <li class="flex flex-col items-start gap-1">
@@ -197,20 +213,20 @@
         getTooltipText(level) {
           const descriptions = [
             "Prototype",
-            "Assistant",
-            "Operator",
-            "Specialist",
-            "Autonomous"
+            "Beta Ready",
+            "Production Ready",
+            "Expert Level",
+            "Superhuman"
           ];
           return descriptions[level - 1] || '';
         },
         getRatingDescription(level) {
           const descriptions = [
-            "Basic capabilities, requires significant human guidance and oversight.",
-            "Can perform routine tasks with supervision and occasional correction.",
-            "Handles defined tasks independently but may need help with edge cases.",
-            "Expert-level performance in domain with minimal human intervention.",
-            "Can operate entirely independently, making complex decisions autonomously."
+            "The state-of-the-art is mostly just a slick demo and the capability collapses on messy, real-world use cases. Don't use it for anything customer facing or mission critical.",
+            "Top models can perform basic tasks for this capability with reasonable results but it still needs human eyes. Limit it to low-stakes, narrow tasks and include guardrails.",
+            "Top models can perform common, repetitive tasks at an average human level. You can use this capability in everyday workflows with light monitoring for quality.",
+            "Leading models can match or exceed expert performance for challenging, high-impact use cases.",
+            "Leading models deliver speed, scale, or performance expert humans can't touch."
           ];
           return descriptions[level - 1] || '';
         }
