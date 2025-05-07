@@ -53,11 +53,11 @@
 
         <!-- Top Section: Icon, Title, Rating -->
         <div class="p-4 md:p-6 flex items-center gap-4">
-          <div class="w-12 h-12 flex-none rounded-lg bg-gray-700 grid place-items-center overflow-hidden">
+          <div class="w-12 h-12 flex-none bg-gray-700 grid place-items-center overflow-hidden">
             <template x-if="cap.icon && cap.icon.endsWith && cap.icon.endsWith('.svg')">
               <img :src="cap.icon.startsWith('llm-showcase/public/') ? cap.icon.substring('llm-showcase/public/'.length) : cap.icon" 
                    alt="Capability Icon" 
-                   class="w-9 h-9">
+                   class="h-full w-full object-cover">
             </template>
             <template x-if="!cap.icon || (cap.icon.endsWith && !cap.icon.endsWith('.svg'))">
             <span class="text-3xl" x-text="cap.icon"></span>
@@ -186,8 +186,11 @@
             <div class="flex items-center w-full gap-2">
               <span class="flex-grow text-sm font-semibold text-gray-300" x-text="getTooltipText(level)"></span>
               <div class="flex-none flex items-center gap-0.5">
-                <template x-for="i in level" :key="level + '-' + i">
-                  <img src="assets/turing2.svg" class="w-6 h-6 md:w-7 md:h-7 filled-head-dark" alt="" />
+                <template x-for="j in 5" :key="level + '-head-' + j">
+                  <img src="assets/turing2.svg"
+                       :class="j <= level ? 'filled-head-dark' : 'unfilled-head-dark'"
+                       class="w-6 h-6 md:w-7 md:h-7"
+                       alt="Rating head" />
                 </template>
               </div>
             </div>
