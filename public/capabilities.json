@@ -11,7 +11,7 @@
 
       ],
       "rating": 4,
-      "icon": "📝",
+      "icon": "llm-showcase/public/assets/IF.svg",
       "useCase": "Auto-generate a weekly financial report: Reads raw data, outputs Markdown with a brief summary (≤150 words), metrics table, formal tone, meeting all constraints perfectly on the first attempt.",
       "commentary": "Precision is key for business value. LLMs are smart, but true impact comes from doing *exactly* what's asked. This cuts rework, reduces compliance risks, and accelerates workflows."
     },
@@ -30,7 +30,7 @@
           { "name": "WebVoyager", "url": "https://arxiv.org/abs/2401.13919" }
         ],
       "rating": 2,
-      "icon": "🖥️",
+      "icon": "llm-showcase/public/assets/CU.svg",
       "useCase": "Book a flight: Given 'Find cheapest direct LHR-JFK flight next Tuesday PM', agent opens site, searches, filters, selects best option, proceeds to booking (pausing for user confirmation).",
       "commentary": "Unlocks automation by letting AI *do* tasks. Potential to revolutionize workflows, accessibility, and assistance, though reliability across diverse interfaces is still improving."
     },

@@ -41,8 +41,15 @@
 
         <!-- Top Section: Icon, Title, Rating -->
         <div class="p-4 md:p-6 flex items-center gap-4">
-          <div class="w-12 h-12 flex-none rounded-lg bg-gray-700 grid place-items-center">
+          <div class="w-12 h-12 flex-none rounded-lg bg-gray-700 grid place-items-center overflow-hidden">
+            <template x-if="cap.icon && cap.icon.endsWith && cap.icon.endsWith('.svg')">
+              <img :src="cap.icon.startsWith('llm-showcase/public/') ? cap.icon.substring('llm-showcase/public/'.length) : cap.icon" 
+                   alt="Capability Icon" 
+                   class="w-9 h-9">
+            </template>
+            <template x-if="!cap.icon || (cap.icon.endsWith && !cap.icon.endsWith('.svg'))">
             <span class="text-3xl" x-text="cap.icon"></span>
+            </template>
           </div>
           <div class="flex-grow">
             <h2 class="text-xl font-semibold text-gray-100" x-text="cap.title"></h2>
