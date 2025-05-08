@@ -52,8 +52,8 @@
       <section class="bg-gray-800/60 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col border border-gray-700">
 
         <!-- Top Section: Icon, Title, Rating -->
-        <div class="p-4 md:p-6 flex items-center gap-4">
-          <div class="w-16 self-stretch flex-none bg-gray-700 grid place-items-center overflow-hidden">
+        <div class="p-4 md:p-6 flex flex-col md:flex-row items-center md:items-center gap-2 md:gap-4">
+          <div class="w-16 flex-none bg-gray-700 grid place-items-center overflow-hidden">
             <template x-if="cap.icon && cap.icon.endsWith && cap.icon.endsWith('.svg')">
               <img :src="cap.icon.startsWith('llm-showcase/public/') ? cap.icon.substring('llm-showcase/public/'.length) : cap.icon" 
                    alt="Capability Icon" 
@@ -64,11 +64,11 @@
             </template>
           </div>
           <div class="flex-grow">
-            <h2 class="text-xl font-semibold text-gray-100" x-text="cap.title"></h2>
+            <h2 class="text-xl font-semibold text-gray-100 text-center md:text-left" x-text="cap.title"></h2>
           </div>
               <!-- Turing head ratings -->
-          <div class="mr-2">
-            <div class="human-likeness-rating">
+          <div class="mt-2 md:mt-0 md:mr-2 flex flex-col items-center">
+            <div class="human-likeness-rating justify-center md:justify-start">
               <template x-for="i in 5">
                 <div class="relative w-6 h-6 md:w-8 md:h-8">
                   <img :src="'assets/turing2.svg'"
