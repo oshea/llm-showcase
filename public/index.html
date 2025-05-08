@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LLM Capabilities Showcase</title>
+  <title>AI Capability Index</title>
   <link rel="icon" href="assets/turing2.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css" />
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -102,21 +102,10 @@
 
             <!-- Description content shown first, without its own heading -->
             <div class="space-y-2">
-              <template x-for="(paragraph, index) in cap.description" :key="index">
+              <template x-for="(paragraph, index) in cap.commentary" :key="index">
                 <p x-text="paragraph" class="text-sm text-gray-400"></p>
               </template>
             </div>
-
-            <!-- Commentary Section (appears after description content) -->
-            <template x-if="cap.commentary && cap.commentary.length > 0">
-              <div :class="{ 'mt-4': cap.description && cap.description.length > 0 }">
-                <div class="space-y-2">
-                  <template x-for="(paragraph, index) in cap.commentary" :key="index">
-                    <p x-text="paragraph" class="text-sm text-gray-400"></p>
-                  </template>
-                </div>
-              </div>
-            </template>
           </div>
 
           <!-- Right Side (Details) -->
@@ -139,12 +128,14 @@
                 </template>
               </ul>
 
+              <!--
               <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Top Models</p>
               <ul class="flex flex-wrap gap-1 mb-4">
                 <template x-for="model in cap.supported">
                   <li class="px-2 py-0.5 bg-gray-700 rounded text-xs text-gray-300" x-text="model"></li>
                 </template>
               </ul>
+              -->
             </div>
           </div>
         </div>
@@ -189,8 +180,7 @@
                 <template x-for="j in 5" :key="level + '-head-' + j">
                   <img src="assets/turing2.svg"
                        :class="j <= level ? 'filled-head-dark' : 'unfilled-head-dark'"
-                       class="w-6 h-6 md:w-7 md:h-7"
-                       alt="Rating head" />
+                       class="w-6 h-6 md:w-7 md:h-7" alt="Rating head" />
                 </template>
               </div>
             </div>

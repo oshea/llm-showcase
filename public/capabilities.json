@@ -1,143 +1,97 @@
 [
+  {
+    "title": "Natural Language Understanding",
+    "supported": ["GPT‑4", "Claude", "Gemini"],
+    "benchmarks": [
+      { "name": "SuperGLUE (2019)", "url": "https://github.com/OpenBMB/ToolBench" },
+      { "name": "GPQA (2023)", "url": "https://github.com/OpenBMB/ToolBench" },
+      { "name": "MMLU-Pro (2024)", "url": "https://github.com/OpenBMB/ToolBench" },
+      { "name": "HELM Capabilities (2025)", "url": "https://github.com/microsoft/API-Bank" }
+    ],
+    "rating": 4,
+    "icon": "🔧",
+    "useCase": "Ticket routing, email handling, sentiment analysis, chatbots, spam filtering, translation, knowledge management, search query understanding, document classification, information extraction from contracts, content moderation, research assistants.",
+    "commentary": [
+      "Natural-language understanding (NLU) is the capability that turns unstructured human text into structured facts a computer can act on—identifying “who, what, when, where, why” in emails, reports, or chats. In effect, it gives software a tireless, reasonably accurate reader.",
+      "The technology has matured to the point where, on widely accepted tests, leading models now perform at roughly human level for everyday language. Reliability drops only when the text becomes extremely technical, filled with equations, or heavy with domain-specific jargon; though there are solutions to address these.",
+      "That means NLU can be woven into routine workflows with light oversight. Deploy it to do the heavy lifting, but gate low-confidence outputs for human review and add domain-specific tuning where specialized language appears. Regular fairness and robustness audits will keep the system aligned with policy and brand standards while allowing you to scale automation as the models continue to improve."
+    ]
+  },
+
     {
       "title": "Instruction Following",
-      "description": ["Accurately follow natural-language instructions, respecting all constraints (length, tone, format, content) on the first try. Understands intent, plans steps, and delivers precisely as requested."],
       "supported": ["ChatGPT", "Gemini", "Claude", "Grok", "Deepseek"],
       "benchmarks": [
         { "name": "IFEval", "url": "https://arxiv.org/abs/2311.07911" },
         { "name": "FollowBench", "url": "https://arxiv.org/abs/2310.20410" },
         { "name": "MultiChallenge", "url": "https://arxiv.org/abs/2501.17399" },
         { "name": "CFBench", "url": "https://arxiv.org/abs/2408.01122" }
-
       ],
       "rating": 4,
       "icon": "llm-showcase/public/assets/IF.svg",
       "useCase": "Auto-generate a weekly financial report: Reads raw data, outputs Markdown with a brief summary (≤150 words), metrics table, formal tone, meeting all constraints perfectly on the first attempt.",
-      "commentary": ["Precision is key for business value. LLMs are smart, but true impact comes from doing *exactly* what's asked. This cuts rework, reduces compliance risks, and accelerates workflows."]
-    },
-    {
-      "title": "Computer Use",
-      "description": ["Lets AI agents understand instructions and operate GUIs (browsers, desktop apps) autonomously. Navigates websites, interacts with UI elements, extracts info, and completes multi-step tasks."],
-      "supported": [
-         "Operator",
-         "Computer Use",
-         "Specialized Agent Models"
-          ],
-      "benchmarks": [
-          { "name": "WebArena", "url": "https://arxiv.org/abs/2307.13854" },
-          { "name": "Mind2Web", "url": "https://arxiv.org/abs/2306.06070" },
-          { "name": "OSWorld", "url": "https://arxiv.org/abs/2404.07972" },
-          { "name": "WebVoyager", "url": "https://arxiv.org/abs/2401.13919" }
-        ],
-      "rating": 2,
-      "icon": "llm-showcase/public/assets/CU.svg",
-      "useCase": "Book a flight: Given 'Find cheapest direct LHR-JFK flight next Tuesday PM', agent opens site, searches, filters, selects best option, proceeds to booking (pausing for user confirmation).",
-      "commentary": ["Unlocks automation by letting AI *do* tasks. Potential to revolutionize workflows, accessibility, and assistance, though reliability across diverse interfaces is still improving."]
-    },
-    {
-      "title": "Tool Use",
-      "description": ["Use various tools like code interpreters and external APIs."],
-      "supported": ["GPT‑4", "Claude", "Gemini"],
-      "benchmarks": [
-        { "name": "ToolBench", "url": "https://github.com/OpenBMB/ToolBench" },
-        { "name": "API-Bank", "url": "https://github.com/microsoft/API-Bank" }
-      ],
-      "rating": 5,
-      "icon": "🔧",
-      "useCase": "Executing code, retrieving data, or calling external services.",
-      "commentary": ["Greatly expands LLM capabilities by connecting to external systems and data sources."]
-    },
-    {
-      "title": "Reasoning",
-      "description": ["Apply logical and complex reasoning skills to solve problems."],
-      "supported": ["GPT‑4", "Claude", "Gemini"],
-      "benchmarks": [
-        { "name": "GSM8K", "url": "https://github.com/openai/grade-school-math" },
-        { "name": "Big-Bench", "url": "https://github.com/google/BIG-bench" }
-      ],
-      "rating": 4,
-      "icon": "🧠",
-      "useCase": "Solving multi-step problems requiring logical inference and analysis.",
-      "commentary": ["Strength varies across domains with math and science reasoning continually improving."]
-    },
-    {
-      "title": "Image Generation",
-      "description": ["Analyzes, modifies, and creates images from textual prompts."],
-      "supported": ["DALL-E 3", "Midjourney", "Stable Diffusion", "Gemini"],
-      "benchmarks": [
-        { "name": "PartiPrompts", "url": "https://parti.research.google/" },
-        { "name": "MS COCO", "url": "https://cocodataset.org/" }
-      ],
-      "rating": 4,
-      "icon": "🖼️",
-      "useCase": "Generating artwork, concept art, photo editing, object recognition.",
-      "commentary": ["Rapidly evolving field with increasingly realistic and complex outputs."]
-    },
-    {
-      "title": "Placeholder Capability 1",
-      "description": ["This is a placeholder description for capability 1."],
-      "supported": ["Model A", "Model B"],
-      "benchmarks": [
-        { "name": "Benchmark P1-X", "url": "#" },
-        { "name": "Benchmark P1-Y", "url": "#" }
-      ],
-      "rating": 3,
-      "icon": "❓",
-      "useCase": "Generic use case example 1.",
       "commentary": [
-        "This is the first paragraph of the commentary.",
-        "This is the second paragraph of the commentary.",
-        "This is the third paragraph of the commentary."
+        "Accurately follow natural-language instructions, respecting all constraints (length, tone, format, content) on the first try. Understands intent, plans steps, and delivers precisely as requested.",
+        "Precision is key for business value. LLMs are smart, but true impact comes from doing *exactly* what's asked. This cuts rework, reduces compliance risks, and accelerates workflows."
       ]
     },
     {
-      "title": "Placeholder Capability 2",
-      "description": ["This is a placeholder description for capability 2."],
-      "supported": ["Model C"],
+      "title": "Reasoning",
+      "supported": ["GPT‑4", "Claude", "Gemini"],
       "benchmarks": [
-        { "name": "Benchmark P2-Z", "url": "#" }
+        { "name": "MMLU-Pro", "url": "https://github.com/openai/grade-school-math" },
+        { "name": "HellaSwag", "url": "https://github.com/openai/grade-school-math" },
+        { "name": "ARC-AGI", "url": "https://github.com/openai/grade-school-math" },
+        { "name": "Humanity’s Last Exam", "url": "https://github.com/openai/grade-school-math" },
+        { "name": "GPQA", "url": "https://github.com/openai/grade-school-math" },
+        { "name": "Big-Bench Hard", "url": "https://github.com/google/BIG-bench" }
       ],
       "rating": 2,
-      "icon": "❔",
-      "useCase": "Generic use case example 2.",
-      "commentary": ["Placeholder commentary about capability 2."]
+      "icon": "🧠",
+      "useCase": "Strategic decision support, automated prioritization, exception handling, scenario planning, trend interpretation, rule-based routing, anomaly flagging, risk assessment, performance evaluation, outcome forecasting.",
+      "commentary": [
+        "Reasoning lets software take a set of facts—numbers, rules, timelines, evidence—and work out what logically follows. Current models handle short, well-structured problems at human level, supplying quick answers to “why” and “what next” questions. Accuracy still slips on long, technical logic chains, so the capability remains in a mature-beta tier rather than full production.",
+        "The safest approach is to use reasoning for first-pass analysis and decision support while keeping humans in the loop for outcomes that affect money, safety, or compliance. Break larger requests into smaller steps, track confidence scores, and route low-confidence results to reviewers. With those guardrails, teams gain faster insight and free up experts to focus on edge cases that machines still find hard."
+      ]
     },
     {
-      "title": "Placeholder Capability 3",
-      "description": ["This is a placeholder description for capability 3."],
-      "supported": ["Model A", "Model D", "Model E"],
+      "title": "Planning",
+      "supported": ["DALL-E 3", "Midjourney", "Stable Diffusion", "Gemini"],
       "benchmarks": [
-        { "name": "Benchmark P3-A", "url": "#" },
-        { "name": "Benchmark P3-B", "url": "#" },
-        { "name": "Benchmark P3-C", "url": "#" }
+        { "name": "PlanBench", "url": "https://parti.research.google/" },
+        { "name": "AgentBench", "url": "https://parti.research.google/" },
+        { "name": "AgentBoard", "url": "https://parti.research.google/" },
+        { "name": "TaskBench", "url": "https://parti.research.google/" },
+        { "name": "SafeAgentBench", "url": "https://cocodataset.org/" }
       ],
-      "rating": 4,
-      "icon": "💡",
-      "useCase": "Generic use case example 3.",
-      "commentary": ["Placeholder commentary about capability 3."]
+      "rating": 2,
+      "icon": "🖼️",
+      "useCase": "Project-timeline drafting, marketing-campaign sequencing, DevOps incident runbook creation, travel or event itineraries, warehouse pick-and-place planning, supply-chain scheduling, meeting-room and resource booking flows, multi-tool business-process orchestration, robotics task sequencing, high-level product-roadmap creation.",
+      "commentary": [
+        "Planning lets an AI break a big goal into small, ordered steps, assess the impact of a step, and make adjustments until a job is complete. Along with reasoning, planning gives agents the ability to take on tasks to think more strategically.",
+        "Today’s models do fine on short, tidy tasks, but they still drift or loop when the task is big or the world changes in mid-stream. So start small: give the agent a narrow set of tools, clear rules, and a tight space to work in. Log every action, set a hard step limit, and have a human ready to jump in if it stalls or gets confused. Break big projects into short sub-plans, and use classical schedulers or rule engines for parts that need exact answers (like truck routing or factory timing).",
+        "If you treat the agent like a junior teammate—trusted with well-defined chores, reviewed on tricky calls—you’ll see steady wins while the tech keeps improving over the next year."
+      ]
     },
     {
-      "title": "Placeholder Capability 4",
-      "description": ["This is a placeholder description for capability 4."],
-      "supported": ["Model F"],
-      "benchmarks": [],
-      "rating": 1,
-      "icon": "🚧",
-      "useCase": "Generic use case example 4.",
-      "commentary": ["Placeholder commentary about capability 4."]
-    },
-    {
-      "title": "Placeholder Capability 5",
-      "description": ["This is a placeholder description for capability 5."],
-      "supported": ["Model G", "Model H"],
+      "title": "Computer Use",
+      "supported": [
+        "Operator",
+        "Computer Use",
+        "Specialized Agent Models"
+      ],
       "benchmarks": [
-        { "name": "Benchmark P5-X", "url": "#" },
-        { "name": "Benchmark P5-Y", "url": "#" }
+        { "name": "WebArena", "url": "https://arxiv.org/abs/2307.13854" },
+        { "name": "Mind2Web", "url": "https://arxiv.org/abs/2306.06070" },
+        { "name": "OSWorld", "url": "https://arxiv.org/abs/2404.07972" },
+        { "name": "WebVoyager", "url": "https://arxiv.org/abs/2401.13919" }
       ],
-      "rating": 5,
-      "icon": "🌟",
-      "useCase": "Generic use case example 5.",
-      "commentary": ["Placeholder commentary about capability 5."]
+      "rating": 2,
+      "icon": "llm-showcase/public/assets/CU.svg",
+      "useCase": "Book a flight: Given 'Find cheapest direct LHR-JFK flight next Tuesday PM', agent opens site, searches, filters, selects best option, proceeds to booking (pausing for user confirmation).",
+      "commentary": [
+        "Lets AI agents understand instructions and operate GUIs (browsers, desktop apps) autonomously. Navigates websites, interacts with UI elements, extracts info, and completes multi-step tasks.",
+        "Unlocks automation by letting AI *do* tasks. Potential to revolutionize workflows, accessibility, and assistance, though reliability across diverse interfaces is still improving."
+      ]
     }
   ]
-  
