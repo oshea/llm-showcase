@@ -27,7 +27,7 @@
         { "name": "MultiChallenge", "url": "https://arxiv.org/abs/2501.17399" },
         { "name": "CFBench", "url": "https://arxiv.org/abs/2408.01122" }
       ],
-      "rating": 4,
+      "rating": 3,
       "icon": "llm-showcase/public/assets/IF.svg",
       "useCase": "KYC automation, first-pass legal brief drafting, compliance monitoring & audit checklist validation, email & ticket routing & drafting, structured data entry automation, knowledge-base population & search query understanding, document classification & information extraction.",
       "commentary": [
