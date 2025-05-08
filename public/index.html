@@ -53,14 +53,14 @@
 
         <!-- Top Section: Icon, Title, Rating -->
         <div class="p-4 md:p-6 flex items-center gap-4">
-          <div class="w-12 h-12 flex-none bg-gray-700 grid place-items-center overflow-hidden">
+          <div class="w-16 self-stretch flex-none bg-gray-700 grid place-items-center overflow-hidden">
             <template x-if="cap.icon && cap.icon.endsWith && cap.icon.endsWith('.svg')">
               <img :src="cap.icon.startsWith('llm-showcase/public/') ? cap.icon.substring('llm-showcase/public/'.length) : cap.icon" 
                    alt="Capability Icon" 
                    class="h-full w-full object-cover">
             </template>
             <template x-if="!cap.icon || (cap.icon.endsWith && !cap.icon.endsWith('.svg'))">
-            <span class="text-3xl" x-text="cap.icon"></span>
+            <span class="text-5xl" x-text="cap.icon"></span>
             </template>
           </div>
           <div class="flex-grow">
@@ -70,10 +70,10 @@
           <div class="mr-2">
             <div class="human-likeness-rating">
               <template x-for="i in 5">
-                <div class="relative">
+                <div class="relative w-6 h-6 md:w-8 md:h-8">
                   <img :src="'assets/turing2.svg'"
                        :class="i <= cap.rating ? 'filled-head-dark' : 'unfilled-head-dark'"
-                       class="w-6 h-6 md:w-8 md:h-8 cursor-default" alt="Alan Turing head rating" />
+                       class="w-full h-full cursor-default" alt="Alan Turing head rating" />
                 </div>
               </template>
             </div>

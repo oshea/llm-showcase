@@ -9,7 +9,7 @@
       { "name": "HELM Capabilities (2025)", "url": "https://github.com/microsoft/API-Bank" }
     ],
     "rating": 4,
-    "icon": "🔧",
+    "icon": "llm-showcase/public/assets/NLU.svg",
     "useCase": "Ticket routing, email handling, sentiment analysis, chatbots, spam filtering, translation, knowledge management, search query understanding, document classification, information extraction from contracts, content moderation, research assistants.",
     "commentary": [
       "Natural-language understanding (NLU) is the capability that turns unstructured human text into structured facts a computer can act on—identifying “who, what, when, where, why” in emails, reports, or chats. In effect, it gives software a tireless, reasonably accurate reader.",
@@ -29,7 +29,7 @@
       ],
       "rating": 4,
       "icon": "llm-showcase/public/assets/IF.svg",
-      "useCase": "Auto-generate a weekly financial report: Reads raw data, outputs Markdown with a brief summary (≤150 words), metrics table, formal tone, meeting all constraints perfectly on the first attempt.",
+      "useCase": "KYC automation, first-pass legal brief drafting, compliance monitoring & audit checklist validation, email & ticket routing & drafting, structured data entry automation, knowledge-base population & search query understanding, document classification & information extraction.",
       "commentary": [
         "Accurately follow natural-language instructions, respecting all constraints (length, tone, format, content) on the first try. Understands intent, plans steps, and delivers precisely as requested.",
         "Precision is key for business value. LLMs are smart, but true impact comes from doing *exactly* what's asked. This cuts rework, reduces compliance risks, and accelerates workflows."
@@ -47,7 +47,7 @@
         { "name": "Big-Bench Hard", "url": "https://github.com/google/BIG-bench" }
       ],
       "rating": 2,
-      "icon": "🧠",
+      "icon": "llm-showcase/public/assets/R.svg",
       "useCase": "Strategic decision support, automated prioritization, exception handling, scenario planning, trend interpretation, rule-based routing, anomaly flagging, risk assessment, performance evaluation, outcome forecasting.",
       "commentary": [
         "Reasoning lets software take a set of facts—numbers, rules, timelines, evidence—and work out what logically follows. Current models handle short, well-structured problems at human level, supplying quick answers to “why” and “what next” questions. Accuracy still slips on long, technical logic chains, so the capability remains in a mature-beta tier rather than full production.",
@@ -65,7 +65,7 @@
         { "name": "SafeAgentBench", "url": "https://cocodataset.org/" }
       ],
       "rating": 2,
-      "icon": "🖼️",
+      "icon": "llm-showcase/public/assets/P.svg",
       "useCase": "Project-timeline drafting, marketing-campaign sequencing, DevOps incident runbook creation, travel or event itineraries, warehouse pick-and-place planning, supply-chain scheduling, meeting-room and resource booking flows, multi-tool business-process orchestration, robotics task sequencing, high-level product-roadmap creation.",
       "commentary": [
         "Planning lets an AI break a big goal into small, ordered steps, assess the impact of a step, and make adjustments until a job is complete. Along with reasoning, planning gives agents the ability to take on tasks to think more strategically.",
@@ -88,7 +88,7 @@
       ],
       "rating": 2,
       "icon": "llm-showcase/public/assets/CU.svg",
-      "useCase": "Book a flight: Given 'Find cheapest direct LHR-JFK flight next Tuesday PM', agent opens site, searches, filters, selects best option, proceeds to booking (pausing for user confirmation).",
+      "useCase": "Book flights end-to-end, process invoices in portals, schedule and manage calendar events, update CRM/ERP records, scrape and structure web data, export and save dashboard reports, perform GUI test automation, route and send templated emails, handle help-desk ticket operations, automate e-commerce checkouts.",
       "commentary": [
         "Lets AI agents understand instructions and operate GUIs (browsers, desktop apps) autonomously. Navigates websites, interacts with UI elements, extracts info, and completes multi-step tasks.",
         "Unlocks automation by letting AI *do* tasks. Potential to revolutionize workflows, accessibility, and assistance, though reliability across diverse interfaces is still improving."

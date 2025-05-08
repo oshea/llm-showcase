@@ -41,7 +41,6 @@
   
   .human-likeness-rating {
     @apply flex flex-row gap-1 items-center justify-start;
-    height: 32px;
   }
 }
 
