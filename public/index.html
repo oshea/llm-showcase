@@ -53,7 +53,7 @@
 
         <!-- Top Section: Icon, Title, Rating -->
         <div class="p-4 md:p-6 flex flex-col md:flex-row items-center md:items-center gap-2 md:gap-4">
-          <div class="w-16 flex-none bg-gray-700 grid place-items-center overflow-hidden">
+          <div class="w-16 flex-none grid place-items-center overflow-hidden">
             <template x-if="cap.icon && cap.icon.endsWith && cap.icon.endsWith('.svg')">
               <img :src="cap.icon.startsWith('llm-showcase/public/') ? cap.icon.substring('llm-showcase/public/'.length) : cap.icon" 
                    alt="Capability Icon" 
@@ -154,7 +154,7 @@
        x-transition:leave-start="opacity-100"
        x-transition:leave-end="opacity-0">
     <div @click.away="showRatingLegend = false"
-         class="bg-gray-800 rounded-lg shadow-xl p-4 md:p-6 max-w-md w-full relative border border-gray-700"
+         class="bg-gray-800 rounded-lg shadow-xl p-4 md:p-6 max-w-xl w-full relative border border-gray-700"
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 scale-95"
          x-transition:enter-end="opacity-100 scale-100"
@@ -170,12 +170,12 @@
       </button>
 
         <!-- Rating level and Name -->
-      <h3 id="rating-legend-title" class="text-lg font-semibold text-gray-100 mb-4">Capability Levels</h3>
-      <ul class="space-y-4">
+      <h3 id="rating-legend-title" class="text-xl font-semibold text-gray-100 mb-4">Capability Levels</h3>
+      <ul class="space-y-5">
         <template x-for="level in 5" :key="level">
           <li class="flex flex-col items-start gap-1">
             <div class="flex items-center w-full gap-2">
-              <span class="flex-grow text-sm font-semibold text-gray-300" x-text="getTooltipText(level)"></span>
+              <span class="flex-grow text-base font-semibold text-gray-300" x-text="getTooltipText(level)"></span>
               <div class="flex-none flex items-center gap-0.5">
                 <template x-for="j in 5" :key="level + '-head-' + j">
                   <img src="assets/turing2.svg"
@@ -184,7 +184,7 @@
                 </template>
               </div>
             </div>
-            <p class="text-xs text-gray-400 mt-0.5" x-text="getRatingDescription(level)"></p>
+            <p class="text-sm text-gray-400 mt-0.5" x-text="getRatingDescription(level)"></p>
           </li>
         </template>
       </ul>
